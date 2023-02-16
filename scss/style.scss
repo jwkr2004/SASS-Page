@@ -1,0 +1,87 @@
+$color: rgb(233, 154, 52);
+$background-color: rgb(55, 55, 55);
+$font: monospace, sans-serif;
+
+@mixin flexbox($color, $background-color, $bordercolor, $bordersize) {
+    color: $color;
+    background-color: $background-color;
+    border: solid $bordercolor $bordersize;
+    border-radius: 8px;
+    padding: 1%;
+    margin: 2%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $color;
+    background-color: $background-color;
+    font-family: $font;
+}
+
+#navbar {
+    background-color: lighten($background-color, $amount: 12%);
+    border-bottom: solid 2px white;
+    padding: 1%;
+    text-align: center;
+    a {
+        font-size: 1.5rem;
+        margin: 0 0.5%;
+        &:link, &:visited {
+            color: $color;
+        }
+        &:hover {
+            color: lighten($color: $color, $amount: 15%);
+        }
+        &:active {
+            color: lighten($color: $color, $amount: 30%);
+        }
+    }
+}
+
+#content {
+    .pagetitle {
+        text-align: center;
+        color: $color;
+        font-size: 2rem;
+        margin: 2% 0;
+    }
+    #flexboxes {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        h2 {
+            color: lighten($color: $color, $amount: 10%);
+            text-align: center;
+            margin-bottom: 4%;
+        }
+        .box {
+            width: 400px;
+        }
+        #box1 {
+            @include flexbox($color, rgb(0, 80, 100), white, 4px);
+        }
+        #box2 {
+            @include flexbox($color, rgb(28, 110, 0), white, 4px);
+        }
+        #box3 {
+            @include flexbox($color, rgb(142, 19, 0), white, 4px);
+        }
+    }
+}
+
+#footer {
+    background-color: lighten($background-color, $amount: 12%);
+    border-top: solid 2px white;
+    padding: 1%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    margin-top: 40px;
+}
